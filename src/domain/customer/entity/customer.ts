@@ -1,5 +1,19 @@
 import Address from "../value-object/address";
 
+// entidade é algo único, tem um id, mas os outros atribts podem ser alterados
+// entidade anêmica, só carrega dados, sem regras de negócio
+// cria isso por causa do ORM, entidade focada em persistência
+// entidade sempre vai ter que representar o estado atual e correto do elemento
+// uma entidade por padrão ela sempre vai ter que se autovalidar
+// entidade focada em negócio, carrega as regras de negócio, formas de mudar o comportamento, aplicando validações, fórmulas
+// o estado atual da minha entidade deve estar sempre correto
+// A entidade sempre vai ter que representar o estado correto e atual do elemento
+// uma entidade por padrão, ela sempre vai ter que se autovalidar
+/**
+ * Duas entidades:
+ * - `entidade focada em persistência` - complexidade acidental
+ * - `entidade focada em negócio` - complexidADE  de negócio
+ */
 export default class Customer {
   private _id: string;
   private _name: string = "";
@@ -34,9 +48,10 @@ export default class Customer {
     }
   }
 
+  // um motivo de negócio
   changeName(name: string) {
     this._name = name;
-    this.validate();
+    this.validate(); // não estou dando change para minha entidade fique inválida
   }
 
   get Address(): Address {
@@ -70,3 +85,6 @@ export default class Customer {
     this._address = address;
   }
 }
+
+let customer = new Customer("123"); //-> Errado, os dados têm que estar consistentes 100% das vezes
+// tem que confiar 100% da vezes que os campos estão consistentes
