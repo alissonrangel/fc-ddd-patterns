@@ -17,7 +17,7 @@ import Address from "../value-object/address";
 export default class Customer {
   private _id: string;
   private _name: string = "";
-  private _address!: Address;
+  private _address!: Address; // Value Object
   private _active: boolean = false;
   private _rewardPoints: number = 0;
 
@@ -86,5 +86,10 @@ export default class Customer {
   }
 }
 
-let customer = new Customer("123"); //-> Errado, os dados têm que estar consistentes 100% das vezes
+//let customer = new Customer("123"); //-> Errado, os dados têm que estar consistentes 100% das vezes
 // tem que confiar 100% da vezes que os campos estão consistentes
+
+// let customer = new Customer("c1", "Alisson")
+// customer.addRewardPoints(100);
+// console.log(customer.rewardPoints);
+

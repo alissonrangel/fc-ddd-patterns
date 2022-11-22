@@ -1,3 +1,7 @@
+// não dar para alterar o atributo
+// não tem id
+// Value object
+// depois de criado não pode mais fazer alteração, não tem set
 export default class Address {
   _street: string = "";
   _number: number = 0;

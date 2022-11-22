@@ -9,7 +9,7 @@ export default class OrderItem {
     id: string,
     name: string,
     price: number,
-    productId: string,
+    productId: string, // em outro agregado, relação por id
     quantity: number
   ) {
     this._id = id;
@@ -36,6 +36,14 @@ export default class OrderItem {
   }
 
   get price(): number {
+    return this._price;
+  }
+
+  // get price(): number {
+  //   return this._price * this._quantity;
+  // }
+
+  orderItemTotal(): number {
     return this._price * this._quantity;
   }
 }

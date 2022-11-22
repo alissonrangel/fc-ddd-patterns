@@ -7,8 +7,8 @@ export default class Order {
 
   constructor(id: string, customerId: string, items: OrderItem[]) {
     this._id = id;
-    this._customerId = customerId;
-    this._items = items;
+    this._customerId = customerId; // em agregados diferentes
+    this._items = items; // no mesmo agregado
     this._total = this.total();
     this.validate();
   }
@@ -44,6 +44,10 @@ export default class Order {
   }
 
   total(): number {
-    return this._items.reduce((acc, item) => acc + item.price, 0);
+    return this._items.reduce((acc, item) => acc + item.orderItemTotal(), 0);
   }
+
+  // total(): number {
+  //   return this._items.reduce((acc, item) => acc + item.price, 0);
+  // }
 }

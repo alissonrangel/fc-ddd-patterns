@@ -11,6 +11,7 @@
   },
   "scripts": {
     "test": "npm run tsc -- --noEmit && jest",
+    "test2": "jest",
     "tsc": "tsc"
   },
   "dependencies": {
