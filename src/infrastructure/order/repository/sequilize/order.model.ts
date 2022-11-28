@@ -23,7 +23,7 @@ export default class OrderModel extends Model {
   @Column({ allowNull: false })
   declare customer_id: string;
 
-  @BelongsTo(() => CustomerModel)
+  @BelongsTo(() => CustomerModel) //para recuperar os dados completos do customer
   declare customer: CustomerModel;
 
   @HasMany(() => OrderItemModel)

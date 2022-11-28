@@ -30,8 +30,12 @@ export default class OrderItemModel extends Model {
   @Column({ allowNull: false })
   declare order_id: string;
 
+  // @BelongsTo(() => OrderModel) //original
+  // declare order: ProductModel;
+  // @BelongsTo(() => OrderModel)
+  // declare order: Awaited<OrderModel>;
   @BelongsTo(() => OrderModel)
-  declare order: ProductModel;
+  declare order: OrderModel;
 
   @Column({ allowNull: false })
   declare quantity: number;
